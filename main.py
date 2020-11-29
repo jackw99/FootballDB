@@ -92,7 +92,7 @@ if __name__ == '__main__':
     r9 = Player("Bergjwin", 24, "LM")
     r10 = Player("Kane", 25, "ST")
 
-    #List of Teams players
+    # List of Teams players
     players = [p, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10]
     players1 = [t, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10]
     players2 = [r, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10]
@@ -112,17 +112,84 @@ if __name__ == '__main__':
     for i in players2:
         t2.addPlayer(i)
 
-    #t.teamSheet()
-    #t1.teamSheet()
-    #t2.teamSheet()
-
     league = League("Premier League", "England")
 
     league.addTeam(t)
     league.addTeam(t1)
     league.addTeam(t2)
 
+    # Barca
+    p = Player("ter Stegen", 27, "GK")
+    p1 = Player("Dest", 19, "RB")
+    p2 = Player("Garcia", 21, "CB")
+    p3 = Player("Lenglet", 27, "CB")
+    p4 = Player("Alba", 33, "LB")
+    p5 = Player("Lopez", 22, "RCM")
+    p6 = Player("de Jong", 23, "CM")
+    p7 = Player("Coutinho", 28, "LCM")
+    p8 = Player("Messi", 33, "RW")
+    p9 = Player("Braithwaite", 26, "CF")
+    p10 = Player("Griezmann", 29, "LW")
+
+    # Real Madrid Players
+    t = Player("Courtois", 28, "GK")
+    t1 = Player("Vazquez", 19, "RB")
+    t2 = Player("Varane", 27, "CB")
+    t3 = Player("Ramos", 32, "CB")
+    t4 = Player("Marcelo", 34, "LB")
+    t5 = Player("Modric", 33, "RCM")
+    t6 = Player("Casemiro", 30, "CDM")
+    t7 = Player("Kroos", 31, "LCM")
+    t8 = Player("Asensio", 25, "RW")
+    t9 = Player("Benzema", 29, "CF")
+    t10 = Player("Hazard", 28, "LW")
+
+    # Atleti Players
+    r = Player("Oblak", 28, "GK")
+    r1 = Player("Savic", 31, "RCB")
+    r2 = Player("Gimenez", 27, "CB")
+    r3 = Player("Hermoso", 22, "LCB")
+    r4 = Player("Trippier", 29, "RWB")
+    r5 = Player("Koke", 31, "CM")
+    r6 = Player("Niguez", 27, "CM")
+    r7 = Player("Lodi", 24, "LWB")
+    r8 = Player("Llorente", 28, "RF")
+    r9 = Player("Correa", 25, "ST")
+    r10 = Player("Lemar", 27, "LF")
+
+    # List of Teams players
+    players = [p, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10]
+    players1 = [t, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10]
+    players2 = [r, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10]
+
+    t3, t4, t5 = Team("Barcelona"), Team("Real Madrid"), Team("Atletico Madrid")
+
+    spnTeams = [t3, t4, t5]
+
+    for i in players:
+        t3.addPlayer(i)
+
+    for i in players1:
+        t4.addPlayer(i)
+
+    for i in players2:
+        t5.addPlayer(i)
+
+    #t.teamSheet()
+    #t1.teamSheet()
+    #t2.teamSheet()
+
+    league2 = League("Liga Santander", "Spain")
+
+    league2.addTeam(t3)
+    league2.addTeam(t4)
+    league2.addTeam(t5)
+
+    print("First League:\n")
     league.showTeams()
+
+    print("Second League:\n")
+    league2.showTeams()
 
 
 
