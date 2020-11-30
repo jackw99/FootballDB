@@ -81,7 +81,6 @@ v10 = c.Attacker("Lemar", 27)
 
 t, t1, t2 = c.Team("Liverpool FC"), c.Team("Manchester City"), c.Team("Tottenham Hotspur")
 t3, t4, t5 = c.Team("Barcelona"), c.Team("Real Madrid"), c.Team("Atletico Madrid")
-t6, t7, t8, t9, t10 = c.Team("West Ham"), c.Team("Southampton"), c.Team("Chelsea"), c.Team("Wolverhampton Wanderers"), c.Team("Arsenal")
 
 league = c.League("Premier League", "England")
 league2 = c.League("Liga Santander", "Spain")
@@ -170,46 +169,18 @@ if __name__ == '__main__':
     league2.addTeam(t3)
     league2.addTeam(t4)
     league2.addTeam(t5)
-    league.addTeam(t6)
-    league.addTeam(t7)
-    league.addTeam(t8)
-    league.addTeam(t9)
-    league.addTeam(t10)
 
-    #print("First League:\n")
-    #league.showTeams()
-    #print("\n")
-    #print("Second League:\n")
-    #league2.showTeams()
+    print("First League:\n")
+    league.showTeams()
+    print("\n")
+    print("Second League:\n")
+    league2.showTeams()
 
-    #t.teamSheet()
+    t.teamSheet()
 
-    #print(t.attackers[2].goals)
+    print(t.attackers[2].goals)
 
-    for i in range(67):
-        t.Win()
-    for i in range(54):
-        t1.Win()
-    for i in range(33):
-        t2.Win()
-    for i in range(5):
-        t6.Win()
-    for i in range(11):
-        t7.Win()
-    for i in range(8):
-        t8.Win()
-    for i in range(17):
-        t9.Win()
-    for i in range(49):
-        t10.Win()
 
-    print(t.points)
-    print(t1.points)
-    print(t2.points)
 
-    j = 1
-    for i in (league.table()):
-        print(f"{j}. {i.name}:  {i.points} points")
-        j += 1
 
 
