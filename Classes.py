@@ -20,6 +20,9 @@ class League():
         return newlist
 
 
+class Competition(League):
+    pass
+
 class Team():
     maxPlayers = 30
 
@@ -102,21 +105,22 @@ class Player():
         self.appearances = 0
         self.yellows = 0
         self.reds = 0
+        self.cleansheets = 0
+
+    def getSheets(self):
+        return self.cleansheets
 
     def Show(self):
         print(f"{self.name} is {self.age} years old")
 
 
 class Goalkeeper(Player):
+    pass
 
-    def cleanSheets(self):
-        return self.cleanSheets()
 
 
 class Defender(Player):
-
-    def cleanSheets(self):
-        return self.cleanSheets()
+    pass
 
 
 class Midfielder(Player):

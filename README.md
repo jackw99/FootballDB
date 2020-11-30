@@ -10,8 +10,9 @@ Players, Teams and Leagues Database Project
 
 To do:
 - Add in Child classes from Player class//
-- Add in GK, Def, Mid and Att lists + test
+- Add in GK, Def, Mid and Att lists + test//
 - Add in Competition Object 
 - Teams have a points variable
-- Generate leaderboard method in teams + competitions that loops through teams and gets points
+- Generate leaderboard method in teams + competitions that loops through teams and gets points//
 - Match method in leagues + competitions
+- Scrape downloaded CSVs using pandas jupyter notebook to be able to store data into objects

@@ -1,5 +1,69 @@
 # creating examples of player, team and league classes
+import pandas as pd
 import Classes as c
+
+df = pd.read_csv(r'C:\DATASETS\FootballDB\premplayers.csv', sep=',')
+players = df.get(['full_name', 'age', 'Current Club', 'position', 'appearances_overall', 'goals_overall',
+                          'assists_overall', 'clean_sheets_overall', 'yellow_cards_overall',
+                          'red_cards_overall']).sort_values(by=['Current Club'])
+
+#Storing players names, club, position and appearances in lists
+nlist = []
+agelist = []
+clist = []
+plist = []
+alist = []
+glist = []
+assistlist = []
+sheetlist = []
+ylist = []
+rlist = []
+
+#multiple series made from player DF columns
+names = players['full_name']
+ages = players['age']
+clubs = players['Current Club']
+positions = players['position']
+appearances = players['appearances_overall']
+goals = players['goals_overall']
+assists = players['assists_overall']
+sheets = players['clean_sheets_overall']
+yellows = players['yellow_cards_overall']
+reds = players['red_cards_overall']
+
+#for loops appending series elements to lists
+for i in names:
+    nlist.append(i)
+for i in clubs:
+    clist.append(i)
+for i in positions:
+    plist.append(i)
+for i in appearances:
+    alist.append(i)
+for i in ages:
+    agelist.append(i)
+for i in goals:
+    glist.append(i)
+for i in assists:
+    assistlist.append(i)
+for i in sheets:
+    sheetlist.append(i)
+for i in yellows:
+    ylist.append(i)
+for i in reds:
+    rlist.append(i)
+
+#testing lengths
+print(len(nlist))
+print(len(clist))
+print(len(plist))
+print(len(alist))
+print(len(glist))
+print(len(assistlist))
+print(len(sheetlist))
+print(len(agelist))
+print(len(ylist))
+print(len(rlist))
 
 #LFC Players
 p = c.Goalkeeper("Alisson", 28)
@@ -81,104 +145,131 @@ v10 = c.Attacker("Lemar", 27)
 
 t, t1, t2 = c.Team("Liverpool FC"), c.Team("Manchester City"), c.Team("Tottenham Hotspur")
 t3, t4, t5 = c.Team("Barcelona"), c.Team("Real Madrid"), c.Team("Atletico Madrid")
+t6, t7, t8, t9, t10 = c.Team("West Ham"), c.Team("Southampton"), c.Team("Chelsea"), c.Team("Wolverhampton Wanderers"), c.Team("Arsenal")
 
 league = c.League("Premier League", "England")
 league2 = c.League("Liga Santander", "Spain")
 
+#Adding Players to teams
+t.addGoalkeeper(p)
+t.addDefender(p1)
+t.addDefender(p2)
+t.addDefender(p3)
+t.addDefender(p4)
+t.addMidfielder(p5)
+t.addMidfielder(p6)
+t.addMidfielder(p7)
+t.addAttacker(p8)
+t.addAttacker(p9)
+t.addAttacker(p10)
+
+t1.addGoalkeeper(t)
+t1.addDefender(t1)
+t1.addDefender(t2)
+t1.addDefender(t3)
+t1.addDefender(t4)
+t1.addMidfielder(t5)
+t1.addMidfielder(t6)
+t1.addMidfielder(t7)
+t1.addAttacker(t8)
+t1.addAttacker(t9)
+t1.addAttacker(t10)
+
+t2.addGoalkeeper(r)
+t2.addDefender(r1)
+t2.addDefender(r2)
+t2.addDefender(r3)
+t2.addDefender(r4)
+t2.addMidfielder(r5)
+t2.addMidfielder(r6)
+t2.addMidfielder(r7)
+t2.addAttacker(r8)
+t2.addAttacker(r9)
+t2.addAttacker(r10)
+
+t3.addGoalkeeper(e)
+t3.addDefender(e1)
+t3.addDefender(e2)
+t3.addDefender(e3)
+t3.addDefender(e4)
+t3.addMidfielder(e5)
+t3.addMidfielder(e6)
+t3.addMidfielder(e7)
+t3.addAttacker(e8)
+t3.addAttacker(e9)
+t3.addAttacker(e10)
+
+t4.addGoalkeeper(f)
+t4.addDefender(f1)
+t4.addDefender(f2)
+t4.addDefender(f3)
+t4.addDefender(f4)
+t4.addMidfielder(f5)
+t4.addMidfielder(f6)
+t4.addMidfielder(f7)
+t4.addAttacker(f8)
+t4.addAttacker(f9)
+t4.addAttacker(f10)
+
+t5.addGoalkeeper(v)
+t5.addDefender(v1)
+t5.addDefender(v2)
+t5.addDefender(v3)
+t5.addDefender(v4)
+t5.addMidfielder(v5)
+t5.addMidfielder(v6)
+t5.addMidfielder(v7)
+t5.addAttacker(v8)
+t5.addAttacker(v9)
+t5.addAttacker(v10)
+
+
+#Adding teams to leagues
+league.addTeam(t)
+league.addTeam(t1)
+league.addTeam(t2)
+league2.addTeam(t3)
+league2.addTeam(t4)
+league2.addTeam(t5)
+league.addTeam(t6)
+league.addTeam(t7)
+league.addTeam(t8)
+league.addTeam(t9)
+league.addTeam(t10)
+
+#for i in range(67):
+#    t.Win()
+#for i in range(54):
+#    t1.Win()
+#for i in range(33):
+#    t2.Win()
+#for i in range(5):
+#    t6.Win()
+#for i in range(11):
+#    t7.Win()
+#for i in range(8):
+#    t8.Win()
+#for i in range(17):
+#    t9.Win()
+#for i in range(49):
+#    t10.Win()
+
+#j = 1
+#for i in (league.table()):
+#    print(f"{j}. {i.name}:  {i.points} points")
+#    j += 1
+
+#t.teamSheet()
+#p.cleansheets += 34
+#print(p.getSheets())
+
+
+
 #main
-if __name__ == '__main__':
-
-    #Adding Players to teams
-    t.addGoalkeeper(p)
-    t.addDefender(p1)
-    t.addDefender(p2)
-    t.addDefender(p3)
-    t.addDefender(p4)
-    t.addMidfielder(p5)
-    t.addMidfielder(p6)
-    t.addMidfielder(p7)
-    t.addAttacker(p8)
-    t.addAttacker(p9)
-    t.addAttacker(p10)
-
-    t1.addGoalkeeper(t)
-    t1.addDefender(t1)
-    t1.addDefender(t2)
-    t1.addDefender(t3)
-    t1.addDefender(t4)
-    t1.addMidfielder(t5)
-    t1.addMidfielder(t6)
-    t1.addMidfielder(t7)
-    t1.addAttacker(t8)
-    t1.addAttacker(t9)
-    t1.addAttacker(t10)
-
-    t2.addGoalkeeper(r)
-    t2.addDefender(r1)
-    t2.addDefender(r2)
-    t2.addDefender(r3)
-    t2.addDefender(r4)
-    t2.addMidfielder(r5)
-    t2.addMidfielder(r6)
-    t2.addMidfielder(r7)
-    t2.addAttacker(r8)
-    t2.addAttacker(r9)
-    t2.addAttacker(r10)
-
-    t3.addGoalkeeper(e)
-    t3.addDefender(e1)
-    t3.addDefender(e2)
-    t3.addDefender(e3)
-    t3.addDefender(e4)
-    t3.addMidfielder(e5)
-    t3.addMidfielder(e6)
-    t3.addMidfielder(e7)
-    t3.addAttacker(e8)
-    t3.addAttacker(e9)
-    t3.addAttacker(e10)
-
-    t4.addGoalkeeper(f)
-    t4.addDefender(f1)
-    t4.addDefender(f2)
-    t4.addDefender(f3)
-    t4.addDefender(f4)
-    t4.addMidfielder(f5)
-    t4.addMidfielder(f6)
-    t4.addMidfielder(f7)
-    t4.addAttacker(f8)
-    t4.addAttacker(f9)
-    t4.addAttacker(f10)
-
-    t5.addGoalkeeper(v)
-    t5.addDefender(v1)
-    t5.addDefender(v2)
-    t5.addDefender(v3)
-    t5.addDefender(v4)
-    t5.addMidfielder(v5)
-    t5.addMidfielder(v6)
-    t5.addMidfielder(v7)
-    t5.addAttacker(v8)
-    t5.addAttacker(v9)
-    t5.addAttacker(v10)
+#if __name__ == '__main__':
+#    pass
 
 
-    #Adding teams to leagues
-    league.addTeam(t)
-    league.addTeam(t1)
-    league.addTeam(t2)
-    league2.addTeam(t3)
-    league2.addTeam(t4)
-    league2.addTeam(t5)
-
-    print("First League:\n")
-    league.showTeams()
-    print("\n")
-    print("Second League:\n")
-    league2.showTeams()
-
-    t.teamSheet()
-
-    print(t.attackers[2].goals)
 
 
 
