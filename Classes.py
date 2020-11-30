@@ -14,6 +14,11 @@ class League():
         for team in self.teams:
             print(team.name)
 
+    #method to print out sorted league table
+    def table(self):
+        newlist = sorted(self.teams, key=lambda x: x.points, reverse=True)
+        return newlist
+
 
 class Team():
     maxPlayers = 30
