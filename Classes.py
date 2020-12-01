@@ -14,6 +14,9 @@ class League():
         for team in self.teams:
             print(team.name)
 
+    def getTeams(self):
+        return self.teams
+
     #method to print out sorted league table
     def table(self):
         newlist = sorted(self.teams, key=lambda x: x.points, reverse=True)
@@ -24,10 +27,12 @@ class Competition(League):
     pass
 
 class Team():
-    maxPlayers = 30
+    maxPlayers = 40
 
-    def __init__(self, name):
+    def __init__(self, name, common, country):
         self.name = name
+        self.common = common
+        self.country = country
         self.playerCount = 0
         self.points = 0
         self.wins = 0
@@ -37,25 +42,30 @@ class Team():
         self.defenders = []
         self.midfielders = []
         self.attackers = []
+        self.allPlayers = []
 
     def addGoalkeeper(self, Player):
         if (self.playerCount < self.maxPlayers):
             self.goalkeepers.append(Player)
+            self.allPlayers.append(Player)
             self.playerCount += 1
 
     def addDefender(self, Player):
         if (self.playerCount < self.maxPlayers):
             self.defenders.append(Player)
+            self.allPlayers.append(Player)
             self.playerCount += 1
 
     def addMidfielder(self, Player):
         if (self.playerCount < self.maxPlayers):
             self.midfielders.append(Player)
+            self.allPlayers.append(Player)
             self.playerCount += 1
 
     def addAttacker(self, Player):
         if (self.playerCount < self.maxPlayers):
             self.attackers.append(Player)
+            self.allPlayers.append(Player)
             self.playerCount += 1
 
     def teamSheet(self):
@@ -97,7 +107,7 @@ class NationalTeam(Team):
 
 
 class Player():
-    def __init__(self, name, age):
+    def __init__(self, name, age, ):
         self.name = name
         self.age = age
         self.goals = 0
