@@ -29,15 +29,15 @@ class Competition(League):
 class Team():
     maxPlayers = 40
 
-    def __init__(self, name, common, country):
+    def __init__(self, name, common, wins, draws,  country):
         self.name = name
         self.common = common
         self.country = country
         self.playerCount = 0
         self.points = 0
-        self.wins = 0
+        self.wins = wins
         self.losses = 0
-        self.draws = 0
+        self.draws = draws
         self.goalkeepers = []
         self.defenders = []
         self.midfielders = []

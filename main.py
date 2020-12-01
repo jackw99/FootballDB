@@ -19,8 +19,8 @@ teams = teams.get(['team_name', 'common_name', 'country', 'matches_played', 'win
 prem = c.League("Premier League", "England")
 
 #loops through DF of teams and creates objects for each team, then populates league object with the teams
-for i, j in teams.iterrows():
-    prem.addTeam(c.Team(j['team_name'], j['common_name'], "England"))
+for i, f in teams.iterrows():
+    prem.addTeam(c.Team(f['team_name'], f['common_name'], f['wins'], f['draws'], "England"))
 
 #prem.showTeams()
 
@@ -53,11 +53,23 @@ for i, j in players.iterrows():
 print("Teams in prem:\n")
 for team in prem.getTeams():
     print(team.name)
-print("\nLFC Teamsheet:\n")
+print("\nThe Mighty Reds:\n")
 
 for player in prem.getTeams()[11].allPlayers:
     print(player.name)
 
+print("\nPremier League Table 2018/19:")
+#Sorting and printing a league table
+for team in prem.getTeams():
+    for i in range(team.wins):
+        team.Win()
+    for i in range(team.draws):
+        team.Draw()
+
+j = 1
+for team in prem.table():
+    print(f"{j}. {team.name}: {team.points} Points")
+    j += 1
 
 #main
 #if __name__ == '__main__':
